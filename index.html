@@ -296,6 +296,11 @@
       place-items: center;
     }
 
+    /* hidden on desktop, shown via mobile media query */
+    .hero-mobile-video {
+      display: none;
+    }
+
     .phone-card {
       width: min(100%, 430px);
       border-radius: 40px;
@@ -905,16 +910,15 @@
         overflow: hidden;
       }
 
-      /* dark overlay between video and text */
       .hero::after {
         content: "";
         position: absolute;
         inset: 0;
         background: linear-gradient(
           to bottom,
-          rgba(4, 12, 8, 0.70) 0%,
-          rgba(4, 12, 8, 0.55) 50%,
-          rgba(4, 12, 8, 0.75) 100%
+          rgba(4, 12, 8, 0.78) 0%,
+          rgba(4, 12, 8, 0.60) 50%,
+          rgba(4, 12, 8, 0.82) 100%
         );
         z-index: 1;
         pointer-events: none;
@@ -931,41 +935,21 @@
       }
 
       .hero-visual {
+        display: none;
+      }
+
+      .hero-mobile-video {
+        display: block;
         position: absolute;
         inset: 0;
         z-index: 0;
       }
 
-      .phone-card {
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        inset: 0;
-        transform: none;
-        border: none;
-        background: none;
-        box-shadow: none;
-        border-radius: 0;
-        padding: 0;
-        margin: 0;
-      }
-
-      .phone-screen {
-        width: 100%;
-        height: 100%;
-        min-height: 100vh;
-        border-radius: 0;
-        background: none;
-        padding: 0;
-        justify-content: flex-start;
-      }
-
-      .phone-bg-video {
+      .hero-mobile-video video {
         width: 100%;
         height: 100%;
         object-fit: cover;
-        position: absolute;
-        inset: 0;
+        display: block;
       }
 
       .floating-card {
@@ -1131,6 +1115,12 @@
 
     <main>
       <section class="hero">
+        <!-- mobile background video (hidden on desktop via CSS) -->
+        <div class="hero-mobile-video" aria-hidden="true">
+          <video playsinline muted autoplay loop>
+            <source src="hero_video.mp4" type="video/mp4">
+          </video>
+        </div>
         <div class="container hero-grid">
           <div class="hero-copy">
             <div class="eyebrow">🔴 Тек 10 орын қалды</div>
