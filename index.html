@@ -922,6 +922,10 @@
         height: 48%;
         width: 36%;
         z-index: 0;
+        /* inset shadow hides the light studio background bleed on right/top edges */
+        box-shadow:
+          inset -24px 0 32px #070f0a,
+          inset 0 -32px 48px #070f0a;
       }
 
       .hero-mentor-img img {
@@ -968,6 +972,11 @@
 
       .hero-copy   { padding: 0; }
       .floating-card { display: none; }
+
+      /* push buttons below the mentor portrait zone */
+      .hero-actions {
+        margin-top: 72px;
+      }
 
       /* hero-visual shows below the text */
       .hero-visual {
