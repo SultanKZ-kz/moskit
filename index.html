@@ -297,7 +297,8 @@
     }
 
     /* hidden on desktop, shown via mobile media query */
-    .hero-mobile-video {
+    .hero-mobile-video,
+    .hero-mentor-img {
       display: none;
     }
 
@@ -897,76 +898,66 @@
       .section-head { position: static; }
       .video-stage  { max-width: 380px; }
 
-      /* ─ body: replace harsh green gradient with dark ─ */
-      body {
-        background:
-          radial-gradient(ellipse at 60% 0%,   rgba(255,215,0,0.06)  0%, transparent 50%),
-          radial-gradient(ellipse at 10% 55%,  rgba(255,215,0,0.04)  0%, transparent 40%),
-          linear-gradient(180deg, #080f0b 0%, #050c08 100%);
-      }
-
-      /* ─ hero: mentor photo on right, dark text area on left ─ */
+      /* ─ hero ─ */
       .hero {
         padding: 88px 0 48px;
         position: relative;
         overflow: hidden;
         min-height: 100svh;
-        /* base dark color (shows where photo doesn't reach) */
         background-color: #080f0b;
-        background-image:
-          /* layer 1: left-to-right mask — text stays readable */
-          linear-gradient(to right,
-            #080f0b        0%,
-            #080f0b        36%,
-            rgba(8,15,11,0.82) 54%,
-            rgba(8,15,11,0.28) 74%,
-            rgba(8,15,11,0.0)  90%
-          ),
-          /* layer 2: top mask — covers header area */
-          linear-gradient(to bottom,
-            rgba(8,15,11,0.75) 0%,
-            transparent        18%
-          ),
-          /* layer 3: mentor portrait */
-          url('mentor.jpg');
-        /* portrait sized to 90% of hero height; gradients fill the area */
-        background-size:
-          100% 100%,
-          100% 100%,
-          auto 90%;
-        background-position:
-          0 0,
-          0 0,
-          right 8%;
-        background-repeat: no-repeat, no-repeat, no-repeat;
       }
 
-      /* bottom fade so hero blends into the next section */
-      .hero::after {
-        content: "";
+      /* mentor portrait absolutely placed on the right */
+      .hero-mentor-img {
+        display: block;
         position: absolute;
-        bottom: 0; left: 0; right: 0; height: 80px;
-        background: linear-gradient(to bottom, transparent 0%, #080f0b 100%);
-        pointer-events: none;
+        top: 0;
+        right: 0;
+        height: 100%;
+        width: 62%;
         z-index: 0;
       }
 
-      /* gold corona is replaced by photo; keep a subtle top glow */
-      .hero::before {
+      .hero-mentor-img img {
+        display: block;
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        object-position: top center;
+      }
+
+      /* left-to-right dark mask: hides photo behind text */
+      .hero-mentor-img::before {
         content: "";
         position: absolute;
-        top: 0; left: 0; width: 100%; height: 160px;
-        background: linear-gradient(to bottom, rgba(8,15,11,0.6) 0%, transparent 100%);
-        pointer-events: none;
+        inset: 0;
+        background: linear-gradient(
+          to right,
+          #080f0b        0%,
+          #080f0b        24%,
+          rgba(8,15,11,0.72) 50%,
+          rgba(8,15,11,0.18) 78%,
+          rgba(8,15,11,0.0) 100%
+        );
         z-index: 1;
       }
 
+      /* bottom fade into next section */
+      .hero-mentor-img::after {
+        content: "";
+        position: absolute;
+        bottom: 0; left: 0; right: 0; height: 120px;
+        background: linear-gradient(to bottom, transparent 0%, #080f0b 100%);
+        z-index: 2;
+      }
+
+      /* content (text) sits above the image */
       .hero-grid {
         display: flex;
         flex-direction: column;
         gap: 28px;
         position: relative;
-        z-index: 1;
+        z-index: 2;
       }
 
       .hero-copy   { padding: 0; }
@@ -1215,6 +1206,10 @@
           <video playsinline muted autoplay loop>
             <source src="hero_video.mp4" type="video/mp4">
           </video>
+        </div>
+        <!-- mobile-only mentor portrait (hidden on desktop) -->
+        <div class="hero-mentor-img" aria-hidden="true">
+          <img src="mentor.jpg" alt="" loading="eager" />
         </div>
         <div class="container hero-grid">
           <div class="hero-copy">
