@@ -881,50 +881,43 @@
       font-size: 13px;
     }
 
+    /* ═══════════════════════════════════════
+       MOBILE ≤ 920px
+    ═══════════════════════════════════════ */
     @media (max-width: 920px) {
-      .nav-links {
-        display: none;
-      }
 
-      .split,
-      .solution-band,
-      .mentor,
-      .price-panel,
-      .video-layout {
+      /* ─ layout overrides ─ */
+      .nav-links { display: none; }
+
+      .split, .solution-band, .mentor,
+      .price-panel, .video-layout {
         grid-template-columns: 1fr;
       }
 
-      .video-stage {
-        max-width: 380px;
+      .section-head { position: static; }
+      .video-stage  { max-width: 380px; }
+
+      /* ─ body: replace harsh green gradient with dark ─ */
+      body {
+        background:
+          radial-gradient(ellipse at 60% 0%,   rgba(255,215,0,0.06)  0%, transparent 50%),
+          radial-gradient(ellipse at 10% 55%,  rgba(255,215,0,0.04)  0%, transparent 40%),
+          linear-gradient(180deg, #080f0b 0%, #050c08 100%);
       }
 
-      .section-head {
-        position: static;
-      }
-
-      /* ── HERO MOBILE: text → video stack ── */
+      /* ─ hero ─ */
       .hero {
         padding: 88px 0 40px;
         position: relative;
         overflow: hidden;
       }
 
-      /* dark background override: kill the eye-burning green radial on mobile */
-      body {
-        background:
-          radial-gradient(circle at 30% 0%, rgba(255,215,0,0.06) 0%, transparent 40%),
-          linear-gradient(180deg, #070f0a 0%, #050d08 100%);
-      }
-
-      /* subtle gold glow behind the headline only */
+      /* wide gold corona above headline */
       .hero::before {
         content: "";
         position: absolute;
-        top: -20px;
-        left: -10%;
-        width: 120%;
-        height: 280px;
-        background: radial-gradient(ellipse at 50% 0%, rgba(255,215,0,0.07) 0%, transparent 65%);
+        top: -40px; left: -10%; width: 120%; height: 260px;
+        background: radial-gradient(ellipse at 50% 0%, rgba(255,215,0,0.09) 0%, transparent 60%);
         pointer-events: none;
         z-index: 0;
       }
@@ -932,140 +925,148 @@
       .hero-grid {
         display: flex;
         flex-direction: column;
-        gap: 24px;
+        gap: 28px;
         position: relative;
         z-index: 1;
       }
 
-      .hero-copy {
-        padding: 0;
-      }
+      .hero-copy   { padding: 0; }
+      .floating-card { display: none; }
 
-      /* show hero-visual below the text */
+      /* hero-visual shows below the text */
       .hero-visual {
         display: block;
         min-height: auto;
         position: static;
       }
 
-      /* clean up the phone-card for mobile: flat card, no tilt */
+      /* phone-card: flat, no tilt */
       .phone-card {
         transform: none;
         max-width: 100%;
         border-radius: 20px;
         overflow: hidden;
-        background: rgba(255,255,255,0.04);
-        border: 1px solid rgba(255,255,255,0.1);
-        box-shadow: 0 12px 40px rgba(0,0,0,0.5);
+        background: rgba(255,255,255,0.03);
+        border: 1px solid rgba(255,255,255,0.08);
+        box-shadow: 0 12px 48px rgba(0,0,0,0.55);
         backdrop-filter: none;
       }
 
+      /* phone-screen: natural height, no conflicts */
       .phone-screen {
         min-height: auto;
+        height: auto;
         border-radius: 16px;
         padding: 0;
-        background: #060e09;
+        background: #06100a;
         position: relative;
+        justify-content: flex-start;
       }
 
-      /* gradient fade at the bottom of phone-screen into page bg */
+      /* fade top */
+      .phone-screen::before {
+        content: "";
+        position: absolute;
+        top: 0; left: 0; right: 0; height: 48px;
+        background: linear-gradient(to bottom, rgba(6,16,10,0.55) 0%, transparent 100%);
+        z-index: 5; pointer-events: none;
+      }
+
+      /* fade bottom → page bg */
       .phone-screen::after {
         content: "";
         position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        height: 56px;
-        background: linear-gradient(to bottom, transparent 0%, #050d08 100%);
-        z-index: 5;
-        pointer-events: none;
+        bottom: 0; left: 0; right: 0; height: 64px;
+        background: linear-gradient(to bottom, transparent 0%, #050c08 100%);
+        z-index: 5; pointer-events: none;
       }
 
-      /* video fills the phone-screen natively */
+      /* video: block flow, not absolute */
       .phone-bg-video {
         display: block;
+        position: static;
         width: 100%;
         height: auto;
-        min-height: 260px;
-        border-radius: 16px;
-        position: static;
+        min-height: 240px;
         object-fit: cover;
+        border-radius: 16px;
       }
 
-      /* hide duplicate mobile bg-video element */
-      .hero-mobile-video {
-        display: none;
-      }
+      .hero-mobile-video { display: none; }
 
-      .floating-card {
-        display: none;
-      }
-
-      /* trust-row: one item per line for readability */
+      /* trust row: vertical stack */
       .trust-row {
         grid-template-columns: 1fr;
         gap: 10px;
       }
 
-      .mentor-photo {
-        min-height: 460px;
+      .mentor-photo { min-height: 460px; }
+
+      /* ─ section-to-section gradient dividers ─ */
+      .section + .section::before,
+      .section-sm + .section::before {
+        content: "";
+        display: block;
+        height: 1px;
+        background: linear-gradient(90deg,
+          transparent 0%,
+          rgba(255,215,0,0.15) 30%,
+          rgba(255,215,0,0.15) 70%,
+          transparent 100%);
+        margin-bottom: 0;
       }
     }
 
+    /* ═══════════════════════════════════════
+       MOBILE ≤ 620px  (small phones)
+    ═══════════════════════════════════════ */
     @media (max-width: 620px) {
       .container {
-        width: min(100% - 28px, var(--max));
+        width: min(100% - 24px, var(--max));
       }
 
-      .section {
-        padding: 60px 0;
-      }
+      .section     { padding: 56px 0; }
+      .section-sm  { padding: 40px 0; }
 
-
-      .hero {
-        padding: 80px 0 40px;
-      }
+      .hero { padding: 76px 0 36px; }
 
       h1 {
-        font-size: clamp(30px, 9vw, 44px);
-        margin-bottom: 16px;
+        font-size: clamp(28px, 8.5vw, 40px);
         line-height: 1.08;
+        margin-bottom: 14px;
       }
 
+      /* gold gradient text on accent span */
       h1 .accent {
         display: block;
         margin-top: 6px;
-        color: var(--gold);
-        /* gradient text effect on accent line */
-        background: linear-gradient(90deg, #FFD700 0%, #FFE566 60%, #FFB300 100%);
+        background: linear-gradient(90deg, #FFD700 0%, #FFE566 55%, #FFBA00 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
       }
 
-      h2 { margin-bottom: 14px; }
+      h2 { margin-bottom: 12px; }
 
-      .topbar {
-        top: 10px;
-      }
+      .topbar { top: 10px; }
 
-      .brand span:last-child {
-        
-        
-        
-        
-      }
-
-      .hero-actions,
-      .btn {
+      /* buttons: full-width, easy tap */
+      .hero-actions {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
         width: 100%;
       }
 
       .btn {
+        width: 100%;
+        justify-content: center;
         white-space: normal;
         text-align: center;
+        min-height: 52px;
       }
 
+      /* cards & grids */
       .trust-row,
       .cards-grid,
       .facts {
@@ -1073,109 +1074,73 @@
       }
 
       .card {
-        padding: 20px;
-      }
-
-      /* video block below main text */
-      .phone-card {
-        transform: none;
-        max-width: 100%;
-        border-radius: 20px;
-        overflow: hidden;
-        position: relative;
-      }
-
-      .phone-screen {
-        min-height: 320px;
-        border-radius: 16px;
-      }
-
-      /* gradient at top of phone-screen fading in */
-      .phone-screen::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 60px;
-        background: linear-gradient(to bottom, rgba(6,19,13,0.6) 0%, transparent 100%);
-        z-index: 5;
-        pointer-events: none;
-      }
-
-      /* gradient at bottom of phone-screen fading out */
-      .phone-screen::after {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        height: 60px;
-        background: linear-gradient(to bottom, transparent 0%, rgba(6,19,13,0.85) 100%);
-        z-index: 5;
-        pointer-events: none;
-      }
-
-      .step {
-        grid-template-columns: 48px 1fr;
-        gap: 14px;
         padding: 18px;
         border-radius: 20px;
       }
 
+      .icon {
+        width: 40px; height: 40px;
+        font-size: 20px;
+        margin-bottom: 12px;
+      }
+
+      /* program steps */
+      .step {
+        grid-template-columns: 44px 1fr;
+        gap: 12px;
+        padding: 16px;
+        border-radius: 18px;
+      }
+
       .step-num {
-        width: 48px;
-        height: 48px;
-        border-radius: 16px;
+        width: 44px; height: 44px;
+        border-radius: 14px;
       }
 
-      .phone-screen {
-        min-height: 400px;
-      }
-
+      /* solution / price / mentor cards */
       .solution-band,
       .mentor-content,
       .price-card,
       .final {
-        padding: 24px;
-        border-radius: 24px;
+        padding: 22px;
+        border-radius: 22px;
       }
 
+      /* video gallery */
       .video-stage {
         max-width: 100%;
-        border-radius: 24px;
+        border-radius: 20px;
       }
 
       .video-tabs {
         flex-wrap: nowrap;
         justify-content: flex-start;
         overflow-x: auto;
-        padding-bottom: 12px;
+        padding-bottom: 10px;
         -webkit-overflow-scrolling: touch;
         scroll-snap-type: x mandatory;
         scrollbar-width: none;
+        gap: 8px;
       }
-      
-      .video-tabs::-webkit-scrollbar {
-        display: none;
-      }
+
+      .video-tabs::-webkit-scrollbar { display: none; }
 
       .video-tab {
         scroll-snap-align: start;
         flex: 0 0 auto;
       }
 
+      /* sticky WhatsApp button */
       .sticky-wa {
-        right: 14px;
-        left: 14px;
+        right: 12px;
+        left: 12px;
         justify-content: center;
-        padding: 16px;
-        font-size: 16px;
+        padding: 15px;
+        font-size: 15px;
+        border-radius: 18px;
       }
 
-      .footer {
-        padding-bottom: 112px;
-      }
+      .footer { padding-bottom: 110px; }
     }
   </style>
 </head>
