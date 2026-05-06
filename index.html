@@ -905,32 +905,39 @@
           linear-gradient(180deg, #080f0b 0%, #050c08 100%);
       }
 
-      /* ─ hero: mentor photo background with dark gradient overlay ─ */
+      /* ─ hero: mentor photo on right, dark text area on left ─ */
       .hero {
         padding: 88px 0 48px;
         position: relative;
         overflow: hidden;
         min-height: 100svh;
-        /*
-          3 layers (top → bottom in CSS = front → back visually):
-          1. dark-to-transparent gradient (text area protection)
-          2. dark tint over whole photo (matches site dark theme)
-          3. mentor.jpg portrait
-        */
+        /* base dark color (shows where photo doesn't reach) */
+        background-color: #080f0b;
         background-image:
-          linear-gradient(
-            to right,
-            rgba(8,15,11,1.0)  0%,
-            rgba(8,15,11,1.0)  30%,
-            rgba(8,15,11,0.75) 52%,
-            rgba(8,15,11,0.15) 75%,
-            rgba(8,15,11,0.0)  100%
+          /* layer 1: left-to-right mask — text stays readable */
+          linear-gradient(to right,
+            #080f0b        0%,
+            #080f0b        36%,
+            rgba(8,15,11,0.82) 54%,
+            rgba(8,15,11,0.28) 74%,
+            rgba(8,15,11,0.0)  90%
           ),
-          linear-gradient(rgba(8,15,11,0.45), rgba(8,15,11,0.45)),
+          /* layer 2: top mask — covers header area */
+          linear-gradient(to bottom,
+            rgba(8,15,11,0.75) 0%,
+            transparent        18%
+          ),
+          /* layer 3: mentor portrait */
           url('mentor.jpg');
-        /* auto width keeps portrait proportions; 100% height fills hero */
-        background-size: cover, cover, auto 100%;
-        background-position: center, center, right bottom;
+        /* portrait sized to 90% of hero height; gradients fill the area */
+        background-size:
+          100% 100%,
+          100% 100%,
+          auto 90%;
+        background-position:
+          0 0,
+          0 0,
+          right 8%;
         background-repeat: no-repeat, no-repeat, no-repeat;
       }
 
