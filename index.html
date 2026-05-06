@@ -314,8 +314,8 @@
       border-radius: 30px;
       overflow: hidden;
       background:
-        linear-gradient(160deg, rgba(6,19,13,.15), rgba(6,19,13,.72)),
-        url("https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=900&q=80") center/cover;
+        linear-gradient(160deg, rgba(6,19,13,.08), rgba(6,19,13,.65)),
+        url("mosquito_net.png") center/cover;
       position: relative;
       padding: 24px;
       display: flex;
@@ -585,8 +585,8 @@
       min-height: 460px;
       border-radius: 36px;
       background:
-        linear-gradient(160deg, rgba(6,19,13,.08), rgba(6,19,13,.58)),
-        url("https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=900&q=80") center/cover;
+        linear-gradient(180deg, rgba(6,19,13,.0) 30%, rgba(6,19,13,.72) 100%),
+        url("mentor.jpg") center top/cover;
       border: 1px solid rgba(255,255,255,.13);
       box-shadow: var(--shadow);
       position: relative;
@@ -718,6 +718,147 @@
       margin: 0 auto;
     }
 
+    /* ─── Video Gallery ─── */
+    .video-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 28px;
+      justify-content: center;
+    }
+
+    .video-tab {
+      padding: 9px 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.15);
+      background: rgba(255,255,255,.06);
+      color: rgba(255,255,255,.65);
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all .22s ease;
+      white-space: nowrap;
+    }
+
+    .video-tab:hover {
+      background: rgba(37,211,102,.12);
+      border-color: rgba(37,211,102,.28);
+      color: var(--white);
+    }
+
+    .video-tab.active {
+      background: linear-gradient(135deg, rgba(37,211,102,.22), rgba(37,211,102,.1));
+      border-color: rgba(37,211,102,.4);
+      color: var(--green-3);
+    }
+
+    .video-stage {
+      position: relative;
+      border-radius: 32px;
+      overflow: hidden;
+      background: rgba(0,0,0,.4);
+      border: 1px solid rgba(255,255,255,.1);
+      box-shadow: var(--shadow);
+      aspect-ratio: 9/16;
+      max-width: 380px;
+      margin: 0 auto;
+    }
+
+    .video-stage video {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+      background: #000;
+    }
+
+    .video-counter {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      background: rgba(6,19,13,.7);
+      border: 1px solid rgba(255,255,255,.16);
+      backdrop-filter: blur(10px);
+      border-radius: 999px;
+      padding: 6px 14px;
+      font-size: 12px;
+      font-weight: 900;
+      color: var(--gold);
+      z-index: 5;
+    }
+
+    .video-nav {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      margin-top: 22px;
+    }
+
+    .video-nav-btn {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,.15);
+      background: rgba(255,255,255,.07);
+      color: var(--white);
+      cursor: pointer;
+      display: grid;
+      place-items: center;
+      transition: all .22s ease;
+      font-size: 18px;
+    }
+
+    .video-nav-btn:hover {
+      background: rgba(37,211,102,.16);
+      border-color: rgba(37,211,102,.36);
+      transform: scale(1.08);
+    }
+
+    .video-dots {
+      display: flex;
+      gap: 8px;
+    }
+
+    .video-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.22);
+      cursor: pointer;
+      transition: all .22s ease;
+      border: none;
+      padding: 0;
+    }
+
+    .video-dot.active {
+      background: var(--green-2);
+      transform: scale(1.3);
+    }
+
+    .video-layout {
+      display: grid;
+      grid-template-columns: 380px 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .video-info {
+      padding: 10px 0;
+    }
+
+    .video-info h3 {
+      font-family: "Unbounded", sans-serif;
+      font-size: 20px;
+      margin-bottom: 12px;
+    }
+
+    .video-info p {
+      color: var(--muted);
+      line-height: 1.65;
+      font-size: 15px;
+    }
+
     .footer {
       padding: 34px 0 98px;
       color: rgba(255,255,255,.38);
@@ -734,8 +875,13 @@
       .split,
       .solution-band,
       .mentor,
-      .price-panel {
+      .price-panel,
+      .video-layout {
         grid-template-columns: 1fr;
+      }
+
+      .video-stage {
+        max-width: 320px;
       }
 
       .section-head {
@@ -744,14 +890,29 @@
 
       .hero-visual {
         min-height: auto;
+        order: -1;
       }
 
       .phone-card {
         transform: none;
+        max-width: 340px;
+        margin: 0 auto;
+      }
+
+      .phone-screen {
+        min-height: 380px;
       }
 
       .floating-card {
         display: none;
+      }
+
+      .mentor-photo {
+        min-height: 380px;
+      }
+
+      .trust-row {
+        grid-template-columns: repeat(3,1fr);
       }
     }
 
@@ -830,6 +991,7 @@
       <nav class="nav-links" aria-label="Бөлімдер">
         <a href="#about">Модель</a>
         <a href="#program">Бағдарлама</a>
+        <a href="#works">Жұмыстар</a>
         <a href="#mentor">Ментор</a>
         <a href="#faq">Сұрақтар</a>
       </nav>
@@ -840,29 +1002,29 @@
 
     <a class="sticky-wa" href="https://wa.me/77086041152?text=%D0%BC%D0%BE%D1%81%D0%BA%D0%B8%D1%82" target="_blank" rel="noopener" aria-label="WhatsApp арқылы жазу">
       <svg class="wa-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-      «москит» деп жаз
+      «СЕТКА» деп жаз
     </a>
 
     <main>
       <section class="hero">
         <div class="container hero-grid">
           <div class="hero-copy">
-            <div class="eyebrow">Тек 10 орын</div>
-            <h1>Москитные сетки бизнесін <span class="accent">7 күнде</span> нөлден баста</h1>
-            <p class="lead">Клиент табу, дұрыс сату, замер жасау, установка процесі және алғашқы тапсырыстарға шығу жолын практикалық форматта үйренесің.</p>
+            <div class="eyebrow">🔴 Тек 10 орын қалды</div>
+            <h1>Москитные сетки бизнесі арқылы <span class="accent">7 күнде 250.000₸</span> табуды баста</h1>
+            <p class="lead">Нөлден бастап үйретемін: клиент табу, сату, замер және установка</p>
 
             <div class="hero-actions">
               <a class="btn btn-primary" href="https://wa.me/77086041152?text=%D0%BC%D0%BE%D1%81%D0%BA%D0%B8%D1%82" target="_blank" rel="noopener">
                 <svg class="wa-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/></svg>
-                WhatsApp-қа «москит» деп жаз
+                👉 WhatsApp-қа «СЕТКА» деп жаз
               </a>
-              <a class="btn btn-secondary" href="#program">Бағдарламаны көру</a>
+              <a class="btn btn-secondary" href="#program">Бағдарламаны қарау</a>
             </div>
 
             <div class="trust-row">
-              <div class="trust-item"><strong>7 күн</strong><span>қысқа, нақты және практикалық старт</span></div>
-              <div class="trust-item"><strong>0₸ офис</strong><span>офиссіз, бастапқы жеңіл модель</span></div>
-              <div class="trust-item"><strong>250 000₸</strong><span>мақсатты табыс потенциалы, нәтиже әрекетке байланысты</span></div>
+              <div class="trust-item"><strong>✔</strong><span>Тәжірибе қажет емес</span></div>
+              <div class="trust-item"><strong>✔</strong><span>Офиссіз жұмыс</span></div>
+              <div class="trust-item"><strong>✔</strong><span>Алматыда жұмыс істейтін нақты модель</span></div>
             </div>
           </div>
 
@@ -886,15 +1048,15 @@
         <div class="container split">
           <div class="section-head">
             <div class="eyebrow">Мәселе</div>
-            <h2>Бастағың келеді, бірақ <span class="accent">қайдан бастау</span> керек екенін білмейсің бе?</h2>
-            <p class="lead">Көп адам бизнеске үлкен ақша, офис, команда керек деп ойлайды. Бұл жерде бастысы — дұрыс жүйе, клиент ағыны және нақты орындау тәртібі.</p>
+            <h2>Сен де осылай <span class="accent">ойлайсың ба?</span></h2>
+            <p class="lead">Бизнес бастау қиын деп ойлайсың ба? Нөлден де болса — жол бар.</p>
           </div>
 
           <div class="cards-grid">
-            <div class="card"><div class="icon">😟</div><h3>Қорқыныш бар</h3><p>«Қолымнан келе ме?» деген ой көп тоқтатады. Біз процесті ұсақ қадамдарға бөлеміз.</p></div>
-            <div class="card"><div class="icon">💸</div><h3>Табыс тұрақсыз</h3><p>Маусымдық сұранысы бар қарапайым қызмет арқылы қосымша табыс моделін түсінесің.</p></div>
-            <div class="card"><div class="icon">📣</div><h3>Клиент қайдан келеді?</h3><p>Жарнама, хабарландыру, органика және WhatsApp арқылы заявка жинау логикасын үйренесің.</p></div>
-            <div class="card"><div class="icon">🛠️</div><h3>Техникадан қорқасың</h3><p>Замер, материал, установка, баға есептеу — бәрі қарапайым тілмен түсіндіріледі.</p></div>
+            <div class="card"><div class="icon">😟</div><h3>Қайдан бастарымды білмеймін</h3><p>Нөлден бастайтын нақты қадамдар бар — сенің жағдайыңа дайын жол картасы.</p></div>
+            <div class="card"><div class="icon">💸</div><h3>Тұрақты табыс жоқ</h3><p>Маусымдық сұранысы жоғары қызмет арқылы тұрақты кіріс табуға болады.</p></div>
+            <div class="card"><div class="icon">🔗</div><h3>Біреуге тәуелдімін</h3><p>Өз бизнесіңді ашып, өзіңе жұмыс жасайсың — ешкімге тәуелді болмайсың.</p></div>
+            <div class="card"><div class="icon">😰</div><h3>Бизнес бастау қиын деп ойлаймын</h3><p>Іс жүзінде — бұл қарапайым. Дайын жүйемен жылдам старт жасайсың.</p></div>
           </div>
         </div>
       </section>
@@ -903,21 +1065,21 @@
         <div class="container solution-band">
           <div>
             <div class="eyebrow">Шешім</div>
-            <h2>Саған <span class="accent">дайын жұмыс жүйесі</span> беріледі</h2>
-            <p class="lead">Бұл жай мотивация емес. Бұл — клиенттен бастап, замерге, установкаға және ақша қабылдауға дейінгі нақты қадамдық модель.</p>
+            <h2>Мен саған <span class="accent">дайын жүйені</span> беремін</h2>
+            <p class="lead">Москитные сетки бизнесі арқылы нақты ақша табу жолы. Бұл теория емес — күнделікті жұмыс істейтін модель.</p>
             <div class="check-list">
-              <div class="check">Қандай клиентке шығу керек екенін түсінесің.</div>
-              <div class="check">WhatsApp арқылы сөйлесу және сату скриптін қолданасың.</div>
-              <div class="check">Бағаны есептеу, маржа және шығынды бақылау логикасын үйренесің.</div>
-              <div class="check">Алғашқы тапсырыстарды алу үшін қарапайым әрекет жоспарын аласың.</div>
+              <div class="check">Клиент табу — жарнама + органика арқылы тұрақты заявка ағыны.</div>
+              <div class="check">Сату скрипттері — клиентпен дұрыс сөйлесу, бас тартуды жеңу.</div>
+              <div class="check">Замер алу — дұрыс өлшем алу техникасы.</div>
+              <div class="check">Алматыда жылдар бойы тексерілген, нақты нәтиже беретін модель.</div>
             </div>
           </div>
 
           <div class="income-box">
-            <div class="income-row"><span>Орташа тапсырыс</span><strong>мысал бойынша</strong></div>
-            <div class="income-row"><span>Материал/жұмыс шығыны</span><strong>есеппен</strong></div>
-            <div class="income-row"><span>Маржа</span><strong>әр қалада әртүрлі</strong></div>
-            <div class="income-row"><span>Мақсат</span><strong>250.000₸ дейін</strong></div>
+            <div class="income-row"><span>7 күнде</span><strong>250.000₸</strong></div>
+            <div class="income-row"><span>1–2 айда</span><strong>1.000.000₸+</strong></div>
+            <div class="income-row"><span>Тәжірибе</span><strong>қажет емес</strong></div>
+            <div class="income-row"><span>Ешкімге</span><strong>тәуелді емессің</strong></div>
           </div>
         </div>
       </section>
@@ -926,17 +1088,17 @@
         <div class="container split">
           <div class="section-head">
             <div class="eyebrow">Оқу бағдарламасы</div>
-            <h2>7 күндік <span class="accent">практикалық</span> жоспар</h2>
-            <p class="lead">Әр күн — нақты бір нәтиже. Теория аз, әрекет көп: түсіну, дайындау, шығу, сөйлесу, сату.</p>
+            <h2>Сен не <span class="accent">үйренесің?</span></h2>
+            <p class="lead">Нөлден бастап практикалық форматта — теория емес, нақты іс-әрекет.</p>
           </div>
 
           <div class="steps">
-            <div class="step"><div class="step-num"></div><div><h3>Ниша және ұсыныс</h3><p class="small-text">Москитные сетки қызметін қалай түсіндіру, кімге ұсыну және қандай оффер жасау.</p></div></div>
-            <div class="step"><div class="step-num"></div><div><h3>Клиент табу</h3><p class="small-text">Жарнама, OLX/Instagram/2GIS/чаттар, аула және үй сегменті бойынша заявка жинау.</p></div></div>
-            <div class="step"><div class="step-num"></div><div><h3>WhatsApp сату скрипті</h3><p class="small-text">Клиентке қалай жауап беру, қарсылықтарды жабу, замерге жазу және бағаны қорғау.</p></div></div>
-            <div class="step"><div class="step-num"></div><div><h3>Замер және есептеу</h3><p class="small-text">Өлшем алу, материалды есептеу, өзіндік құн, маржа және финалдық баға.</p></div></div>
-            <div class="step"><div class="step-num"></div><div><h3>Установка процесі</h3><p class="small-text">Жұмыс тәртібі, құралдар, клиентке сапалы нәтиже көрсету және қайта сатылым алу.</p></div></div>
-            <div class="step"><div class="step-num"></div><div><h3>Алғашқы тапсырыстар</h3><p class="small-text">7 күнге нақты әрекет жоспары: күн сайын не істеу керек, қанша адамға жазу керек, қалай бақылау керек.</p></div></div>
+            <div class="step"><div class="step-num"></div><div><h3>Клиент табу</h3><p class="small-text">Жарнама + органика арқылы тұрақты заявка ағыны.</p></div></div>
+            <div class="step"><div class="step-num"></div><div><h3>Сату скрипттері</h3><p class="small-text">Клиентпен дұрыс сөйлесу, бас тартуды жеңу.</p></div></div>
+            <div class="step"><div class="step-num"></div><div><h3>Замер алу</h3><p class="small-text">Дұрыс өлшем алу техникасы.</p></div></div>
+            <div class="step"><div class="step-num"></div><div><h3>Өндіріс &amp; материал</h3><p class="small-text">Жеткізушілермен жұмыс, шығынды азайту.</p></div></div>
+            <div class="step"><div class="step-num"></div><div><h3>Монтаж процесі</h3><p class="small-text">Кәсіби орнату техникасы.</p></div></div>
+            <div class="step"><div class="step-num"></div><div><h3>Тұрақты ағын</h3><p class="small-text">Заявка ағынын автоматтандыру.</p></div></div>
           </div>
         </div>
       </section>
@@ -945,26 +1107,83 @@
         <div class="container mentor">
           <div class="mentor-photo">
             <div class="mentor-photo-note">
-              <h3>Практикалық тәжірибе</h3>
-              <p class="small-text">Фотоны өзіңнің нақты фотоңа ауыстыр: image URL немесе файл жолын CSS ішіндегі background орнына қой.</p>
+              <h3>Бигалиев Султан</h3>
+              <p class="small-text">16 жылдық сауда тәжірибесі бар кәсіпкер. 2018 жылдан бастап москитная сетка бизнесінде.</p>
             </div>
           </div>
 
           <div class="mentor-content">
-            <div class="eyebrow">Ментор</div>
-            <h2>Сені теориямен емес, <span class="accent">нақты жүйемен</span> жүргіземін</h2>
-            <p class="lead">Менің мақсатым — саған күрделі бизнес емес, түсінікті және қайталанатын процесс беру: клиент → замер → установка → төлем → келесі клиент.</p>
+            <div class="eyebrow">Наставник</div>
+            <h2><span class="accent">Бигалиев Султан</span></h2>
+            <p class="lead">16 жылдық сауда тәжірибесі бар кәсіпкер. 2018 жылдан бастап москитная сетка бизнесінде 9 жыл жұмыс жасайды. 30 000-нан астам сетка орнатылған, 8 000-нан астам клиент.</p>
 
             <div class="facts">
-              <div class="fact"><strong>1:1</strong><span class="small-text">бағыт беру</span></div>
-              <div class="fact"><strong>7 күн</strong><span class="small-text">жылдам старт</span></div>
-              <div class="fact"><strong>10 орын</strong><span class="small-text">шектеулі топ</span></div>
+              <div class="fact"><strong>16 жыл</strong><span class="small-text">сауда тәжірибесі</span></div>
+              <div class="fact"><strong>9 жыл</strong><span class="small-text">бизнесте (2018-)</span></div>
+              <div class="fact"><strong>30.000+</strong><span class="small-text">орнатылған сетка</span></div>
             </div>
 
             <div class="check-list">
-              <div class="check">Сен нақты не істеу керегін білесің.</div>
-              <div class="check">Дайын мәтіндер мен скрипттерді қолданасың.</div>
-              <div class="check">Қателіктерді азайтып, алғашқы қадамды тез жасайсың.</div>
+              <div class="check">2018 жылдан бастап Алматыда жұмыс жасайтын нақты тексерілген бизнес модель.</div>
+              <div class="check">Мен өзім нөлден бастадым — қазір саған да үйретемін.</div>
+              <div class="check">8.000-нан астам клиент — нәтиже дәлелденген.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ─── Наши работы (видео) ─── -->
+      <section class="section" id="works">
+        <div class="container">
+          <div style="text-align:center;margin-bottom:36px;">
+            <div class="eyebrow" style="margin-left:auto;margin-right:auto;">Наши работы</div>
+            <h2>Нақты орындалған <span class="accent">жұмыстар</span></h2>
+            <p class="lead" style="margin:0 auto;">Замер, материал таңдау, установка процесі — бәрін видео форматта бақылаңыз.</p>
+          </div>
+
+          <div class="video-tabs" role="tablist" aria-label="Видео жұмыстары">
+            <button class="video-tab active" onclick="showVideo(0)" role="tab" aria-selected="true" id="vtab-0">Жұмыс 1</button>
+            <button class="video-tab" onclick="showVideo(1)" role="tab" id="vtab-1">Жұмыс 2</button>
+            <button class="video-tab" onclick="showVideo(2)" role="tab" id="vtab-2">Жұмыс 3</button>
+            <button class="video-tab" onclick="showVideo(3)" role="tab" id="vtab-3">Жұмыс 4</button>
+            <button class="video-tab" onclick="showVideo(4)" role="tab" id="vtab-4">Жұмыс 5</button>
+            <button class="video-tab" onclick="showVideo(5)" role="tab" id="vtab-5">Жұмыс 6</button>
+            <button class="video-tab" onclick="showVideo(6)" role="tab" id="vtab-6">Жұмыс 7</button>
+          </div>
+
+          <div class="video-layout">
+            <div>
+              <div class="video-stage" id="video-stage">
+                <div class="video-counter" id="video-counter">1 / 7</div>
+                <video id="main-video" controls playsinline preload="metadata">
+                  <source src="WhatsApp%20Video%202026-05-06%20at%2017.06.33.mp4" type="video/mp4">
+                </video>
+              </div>
+
+              <div class="video-nav">
+                <button class="video-nav-btn" onclick="prevVideo()" aria-label="Алдыңғы">&#8592;</button>
+                <div class="video-dots" role="group" aria-label="Видео навигация">
+                  <button class="video-dot active" onclick="showVideo(0)" aria-label="Видео 1"></button>
+                  <button class="video-dot" onclick="showVideo(1)" aria-label="Видео 2"></button>
+                  <button class="video-dot" onclick="showVideo(2)" aria-label="Видео 3"></button>
+                  <button class="video-dot" onclick="showVideo(3)" aria-label="Видео 4"></button>
+                  <button class="video-dot" onclick="showVideo(4)" aria-label="Видео 5"></button>
+                  <button class="video-dot" onclick="showVideo(5)" aria-label="Видео 6"></button>
+                  <button class="video-dot" onclick="showVideo(6)" aria-label="Видео 7"></button>
+                </div>
+                <button class="video-nav-btn" onclick="nextVideo()" aria-label="Келесі">&#8594;</button>
+              </div>
+            </div>
+
+            <div class="video-info" id="video-info">
+              <h3 id="video-title">Установка москитной сетки</h3>
+              <p id="video-desc">Профессиональды орнату процесі. Замерден бастап, дайын нәтижеге дейін — нақты, тез және сапалы.</p>
+
+              <div class="check-list" style="margin-top:24px;">
+                <div class="check">Кез-келген терезе өлшеміне бейімделеді</div>
+                <div class="check">Жоғары сапалы тор материалы</div>
+                <div class="check">Тез және таза орнату</div>
+              </div>
             </div>
           </div>
         </div>
@@ -1018,7 +1237,7 @@
             </details>
             <details>
               <summary>Қалай жазыламын?</summary>
-              <p>Төмендегі WhatsApp батырмасын басып, автоматты түрде дайын мәтінмен «москит» деп жазыңыз.</p>
+              <p>Төмендегі WhatsApp батырмасын басып, «СЕТКА» деп жазыңыз — сізге бірден жауап береміз.</p>
             </details>
           </div>
         </div>
@@ -1026,13 +1245,13 @@
 
       <section class="section-sm">
         <div class="container final">
-          <div class="eyebrow" style="margin-left:auto;margin-right:auto;">Старт</div>
-          <h2>Бірінші қадамды бүгін жаса</h2>
-          <p class="lead">WhatsApp-қа «москит» деп жаз. Саған толық ақпарат жіберіледі және қай формат саған ыңғайлы екенін анықтаймыз.</p>
+          <div class="eyebrow" style="margin-left:auto;margin-right:auto;">Қазір бастау</div>
+          <h2>Дайынсың ба?</h2>
+          <p class="lead">Қазір «СЕТКА» деп жаз және толық ақпарат ал.</p>
           <div style="margin-top:28px;display:flex;justify-content:center;">
-            <a class="btn btn-primary" href="https://wa.me/77086041152?text=%D0%BC%D0%BE%D1%81%D0%BA%D0%B8%D1%82" target="_blank" rel="noopener">
+            <a class="btn btn-primary" href="https://wa.me/77086041152?text=%D0%A1%D0%95%D0%A2%D0%9A%D0%90" target="_blank" rel="noopener">
               <svg class="wa-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/></svg>
-              «москит» деп жазу
+              👉 WhatsApp-қа «СЕТКА» деп жаз
             </a>
           </div>
         </div>
@@ -1041,9 +1260,90 @@
 
     <footer class="footer">
       <div class="container">
-        © 2026 Moskit Business • Алматы • WhatsApp: +7 708 604 11 52
+        © 2025 Москитные сетки бизнесі • Алматы
       </div>
     </footer>
   </div>
+
+  <script>
+    const videos = [
+      {
+        src: "WhatsApp%20Video%202026-05-06%20at%2017.06.33.mp4",
+        title: "Установка москитной сетки",
+        desc: "Профессиональды орнату процесі. Замерден бастап, дайын нәтижеге дейін — нақты, тез және сапалы."
+      },
+      {
+        src: "WhatsApp%20Video%202026-05-06%20at%2017.06.34.mp4",
+        title: "Замер және өлшеу",
+        desc: "Дәл өлшем алу — сапалы орнатудың бастамасы. Клиент терезесін нақты өлшеп, материал есептейміз."
+      },
+      {
+        src: "WhatsApp%20Video%202026-05-06%20at%2017.06.35.mp4",
+        title: "Материал таңдау",
+        desc: "Жоғары сапалы тор, бекіткіш профиль және шынтақ — барлығы клиент сұранысына сай таңдалады."
+      },
+      {
+        src: "WhatsApp%20Video%202026-05-06%20at%2017.06.50.mp4",
+        title: "Монтаж процесі",
+        desc: "Орнату кезінде терезені зақымдамаймыз. Таза, жылдам, кәсіпқой нәтиже кепілді."
+      },
+      {
+        src: "WhatsApp%20Video%202026-05-06%20at%2017.06.56%20%281%29.mp4",
+        title: "Дайын нәтиже",
+        desc: "Клиент терезесіне орнатылған дайын москитная сетка — эстетикалы және функционалды."
+      },
+      {
+        src: "WhatsApp%20Video%202026-05-06%20at%2017.06.56.mp4",
+        title: "Сатылым процесі",
+        desc: "WhatsApp арқылы клиентпен сөйлесу, баға беру және тапсырысты жабу скрипті."
+      },
+      {
+        src: "WhatsApp%20Video%202026-05-06%20at%2017.07.19.mp4",
+        title: "Кері байланыс",
+        desc: "Клиент жұмысты қабылдады. Сапалы нәтиже — қайта сатылым мен ұсыныстың кілті."
+      }
+    ];
+
+    let currentVideo = 0;
+
+    function showVideo(idx) {
+      currentVideo = idx;
+      const v = videos[idx];
+      const videoEl = document.getElementById('main-video');
+      const sourceEl = videoEl.querySelector('source');
+      videoEl.pause();
+      sourceEl.src = v.src;
+      videoEl.load();
+
+      document.getElementById('video-title').textContent = v.title;
+      document.getElementById('video-desc').textContent = v.desc;
+      document.getElementById('video-counter').textContent = (idx + 1) + ' / ' + videos.length;
+
+      document.querySelectorAll('.video-tab').forEach(function(t, i) {
+        t.classList.toggle('active', i === idx);
+        t.setAttribute('aria-selected', i === idx ? 'true' : 'false');
+      });
+
+      document.querySelectorAll('.video-dot').forEach(function(d, i) {
+        d.classList.toggle('active', i === idx);
+      });
+    }
+
+    function nextVideo() {
+      showVideo((currentVideo + 1) % videos.length);
+    }
+
+    function prevVideo() {
+      showVideo((currentVideo - 1 + videos.length) % videos.length);
+    }
+
+    // Keyboard navigation for video gallery
+    document.addEventListener('keydown', function(e) {
+      var stage = document.getElementById('video-stage');
+      if (!stage) return;
+      if (e.key === 'ArrowRight') nextVideo();
+      if (e.key === 'ArrowLeft') prevVideo();
+    });
+  </script>
 </body>
 </html>
