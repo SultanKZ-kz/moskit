@@ -899,60 +899,73 @@
       }
 
       .hero {
-        padding: 0;
+        padding: 100px 0 60px;
         min-height: 100vh;
-        display: flex;
-        align-items: center;
         position: relative;
         overflow: hidden;
       }
 
+      /* dark overlay between video and text */
+      .hero::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to bottom,
+          rgba(4, 12, 8, 0.70) 0%,
+          rgba(4, 12, 8, 0.55) 50%,
+          rgba(4, 12, 8, 0.75) 100%
+        );
+        z-index: 1;
+        pointer-events: none;
+      }
+
       .hero-grid {
-        z-index: 5;
+        position: relative;
+        z-index: 2;
+        grid-template-columns: 1fr;
       }
 
       .hero-copy {
-        position: relative;
-        padding: 40px 0;
-      }
-      
-      .hero-copy::before {
-        content: "";
-        position: absolute;
-        top: -100vh;
-        bottom: -100vh;
-        left: -100vw;
-        right: -20vw;
-        background: linear-gradient(90deg, rgba(6,19,13,0.96) 0%, rgba(6,19,13,0.85) 75%, rgba(6,19,13,0.1) 100%);
-        z-index: -1;
+        padding: 0;
       }
 
       .hero-visual {
         position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
+        inset: 0;
         z-index: 0;
       }
 
       .phone-card {
-        transform: none;
-        max-width: none;
         width: 100%;
         height: 100%;
-        margin: 0;
-        padding: 0;
+        position: absolute;
+        inset: 0;
+        transform: none;
         border: none;
         background: none;
         box-shadow: none;
+        border-radius: 0;
+        padding: 0;
+        margin: 0;
       }
 
       .phone-screen {
-        min-height: 100%;
+        width: 100%;
         height: 100%;
+        min-height: 100vh;
         border-radius: 0;
         background: none;
+        padding: 0;
+        justify-content: flex-start;
+      }
+
+      .phone-bg-video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        position: absolute;
+        inset: 0;
       }
 
       .floating-card {
