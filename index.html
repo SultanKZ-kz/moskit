@@ -898,23 +898,29 @@
       .section-head { position: static; }
       .video-stage  { max-width: 380px; }
 
+      /* ─ body: kill green radial gradients on mobile ─ */
+      body {
+        background:
+          linear-gradient(180deg, #070f0a 0%, #050c08 100%);
+      }
+
       /* ─ hero ─ */
       .hero {
         padding: 88px 0 48px;
         position: relative;
         overflow: hidden;
         min-height: 100svh;
-        background-color: #080f0b;
+        background-color: #070f0a;
       }
 
-      /* mentor portrait absolutely placed on the right */
+      /* mentor portrait: small, upper-right corner */
       .hero-mentor-img {
         display: block;
         position: absolute;
-        top: 8%;
+        top: 10%;
         right: 0;
-        height: 60%;
-        width: 44%;
+        height: 48%;
+        width: 36%;
         z-index: 0;
       }
 
@@ -1249,7 +1255,7 @@
             <div class="floating-card one"><strong>Заявка → замер</strong><span>Клиентпен сөйлесу және нақты тапсырысқа шығу жүйесі</span></div>
             <div class="phone-card">
               <div class="phone-screen" style="padding:0;">
-                <video controls playsinline class="phone-bg-video">
+                <video controls playsinline class="phone-bg-video" poster="mosquito_net.png">
                   <source src="hero_video.mp4" type="video/mp4">
                 </video>
               </div>
