@@ -1,0 +1,1049 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Москитные сетки бизнесін нөлден бастап үйрену: клиент табу, сату, замер, установка және табыс моделін түсіну." />
+  <title>Москитные сетки бизнесі | 7 күндік практикалық старт</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@500;700;800;900&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg: #06130d;
+      --bg-2: #0b2117;
+      --card: rgba(255, 255, 255, 0.06);
+      --card-2: rgba(255, 255, 255, 0.1);
+      --line: rgba(255, 255, 255, 0.12);
+      --green: #1f8a55;
+      --green-2: #25d366;
+      --green-3: #9df2c1;
+      --gold: #f0c766;
+      --gold-2: #fff1b8;
+      --white: #ffffff;
+      --muted: rgba(255, 255, 255, 0.72);
+      --soft: rgba(255, 255, 255, 0.52);
+      --shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
+      --radius: 28px;
+      --max: 1160px;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Manrope", sans-serif;
+      background:
+        radial-gradient(circle at 12% 4%, rgba(37, 211, 102, 0.16), transparent 28%),
+        radial-gradient(circle at 92% 14%, rgba(240, 199, 102, 0.14), transparent 34%),
+        linear-gradient(180deg, #06130d 0%, #0a1b13 44%, #07120d 100%);
+      color: var(--white);
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .page {
+      min-height: 100vh;
+    }
+
+    .container {
+      width: min(100% - 36px, var(--max));
+      margin: 0 auto;
+    }
+
+    .section {
+      padding: 92px 0;
+      position: relative;
+    }
+
+    .section-sm {
+      padding: 62px 0;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 8px 14px;
+      border: 1px solid rgba(240, 199, 102, 0.28);
+      background: rgba(240, 199, 102, 0.1);
+      color: var(--gold-2);
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+      width: fit-content;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      background: var(--green-2);
+      border-radius: 50%;
+      box-shadow: 0 0 0 8px rgba(37, 211, 102, 0.13);
+    }
+
+    h1, h2, h3 {
+      font-family: "Unbounded", sans-serif;
+      letter-spacing: -0.045em;
+    }
+
+    h1 {
+      font-size: clamp(36px, 7vw, 74px);
+      line-height: 0.98;
+      max-width: 850px;
+      margin-bottom: 22px;
+    }
+
+    h2 {
+      font-size: clamp(28px, 4.8vw, 54px);
+      line-height: 1.06;
+      margin-bottom: 18px;
+    }
+
+    h3 {
+      font-size: 19px;
+      line-height: 1.25;
+    }
+
+    .accent {
+      color: var(--gold);
+    }
+
+    .lead {
+      color: var(--muted);
+      font-size: clamp(16px, 2.2vw, 20px);
+      line-height: 1.65;
+      max-width: 700px;
+    }
+
+    .small-text {
+      color: var(--soft);
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .topbar {
+      position: fixed;
+      top: 14px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: min(100% - 28px, var(--max));
+      z-index: 50;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(6, 19, 13, 0.72);
+      backdrop-filter: blur(18px);
+      border-radius: 999px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 12px 10px 18px;
+      box-shadow: 0 18px 50px rgba(0, 0, 0, 0.18);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+    }
+
+    .brand-mark {
+      width: 34px;
+      height: 34px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, var(--green-2), var(--gold));
+      color: #05110b;
+      font-weight: 900;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      color: rgba(255,255,255,.72);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      transition: color .2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--white);
+    }
+
+    .hero {
+      min-height: 100svh;
+      display: flex;
+      align-items: center;
+      padding: 130px 0 76px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      gap: 46px;
+      align-items: center;
+    }
+
+    .hero-copy {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      align-items: center;
+      margin-top: 30px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      border: 0;
+      text-decoration: none;
+      cursor: pointer;
+      min-height: 58px;
+      padding: 16px 23px;
+      border-radius: 18px;
+      font-weight: 900;
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+      white-space: nowrap;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #25d366 0%, #18a950 100%);
+      color: #fff;
+      box-shadow: 0 18px 42px rgba(37, 211, 102, 0.28);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: var(--white);
+    }
+
+    .wa-icon {
+      width: 22px;
+      height: 22px;
+      flex: 0 0 22px;
+    }
+
+    .trust-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 36px;
+      max-width: 780px;
+    }
+
+    .trust-item {
+      background: rgba(255, 255, 255, 0.055);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 18px;
+    }
+
+    .trust-item strong {
+      display: block;
+      font-family: "Unbounded", sans-serif;
+      color: var(--gold);
+      font-size: 20px;
+      margin-bottom: 6px;
+    }
+
+    .trust-item span {
+      color: var(--soft);
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    .hero-visual {
+      min-height: 620px;
+      position: relative;
+      display: grid;
+      place-items: center;
+    }
+
+    .phone-card {
+      width: min(100%, 430px);
+      border-radius: 40px;
+      padding: 18px;
+      background: linear-gradient(145deg, rgba(255,255,255,.14), rgba(255,255,255,.035));
+      border: 1px solid rgba(255,255,255,.14);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(18px);
+      transform: rotate(2deg);
+      position: relative;
+      z-index: 2;
+    }
+
+    .phone-screen {
+      min-height: 540px;
+      border-radius: 30px;
+      overflow: hidden;
+      background:
+        linear-gradient(160deg, rgba(6,19,13,.15), rgba(6,19,13,.72)),
+        url("https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=900&q=80") center/cover;
+      position: relative;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+
+    .screen-badge {
+      position: absolute;
+      top: 22px;
+      left: 22px;
+      right: 22px;
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .screen-badge span {
+      background: rgba(6, 19, 13, 0.62);
+      border: 1px solid rgba(255,255,255,.16);
+      backdrop-filter: blur(12px);
+      padding: 9px 12px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    .screen-info {
+      background: rgba(6, 19, 13, 0.76);
+      border: 1px solid rgba(255,255,255,.14);
+      border-radius: 24px;
+      padding: 20px;
+      backdrop-filter: blur(14px);
+    }
+
+    .screen-info .price {
+      font-family: "Unbounded", sans-serif;
+      font-size: 30px;
+      font-weight: 900;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+
+    .floating-card {
+      position: absolute;
+      z-index: 3;
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.14);
+      backdrop-filter: blur(16px);
+      border-radius: 22px;
+      padding: 16px;
+      box-shadow: 0 18px 60px rgba(0,0,0,.26);
+      max-width: 220px;
+    }
+
+    .floating-card.one {
+      left: -10px;
+      top: 98px;
+    }
+
+    .floating-card.two {
+      right: -4px;
+      bottom: 84px;
+    }
+
+    .floating-card strong {
+      display: block;
+      color: var(--gold-2);
+      margin-bottom: 6px;
+    }
+
+    .floating-card span {
+      color: rgba(255,255,255,.66);
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    .sticky-wa {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      z-index: 80;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 18px;
+      border-radius: 999px;
+      background: #25d366;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 900;
+      box-shadow: 0 18px 46px rgba(37, 211, 102, 0.38);
+      animation: pulse 2.5s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 18px 46px rgba(37, 211, 102, 0.34); }
+      50% { box-shadow: 0 18px 70px rgba(37, 211, 102, 0.62); }
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 34px;
+      align-items: start;
+    }
+
+    .section-head {
+      position: sticky;
+      top: 110px;
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: 0 14px 50px rgba(0,0,0,.14);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::after {
+      content: "";
+      position: absolute;
+      inset: auto -40px -70px auto;
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      background: rgba(240, 199, 102, 0.08);
+      pointer-events: none;
+    }
+
+    .icon {
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      border-radius: 17px;
+      background: rgba(37, 211, 102, 0.11);
+      border: 1px solid rgba(37, 211, 102, 0.2);
+      font-size: 24px;
+      margin-bottom: 18px;
+    }
+
+    .card p {
+      color: var(--muted);
+      line-height: 1.65;
+      margin-top: 10px;
+      font-size: 15px;
+    }
+
+    .solution-band {
+      border-radius: 36px;
+      padding: 42px;
+      background:
+        linear-gradient(135deg, rgba(37,211,102,.17), rgba(240,199,102,.10)),
+        rgba(255,255,255,.055);
+      border: 1px solid rgba(255,255,255,.14);
+      box-shadow: var(--shadow);
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .check-list {
+      display: grid;
+      gap: 13px;
+      margin-top: 24px;
+    }
+
+    .check {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    .check::before {
+      content: "✓";
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      flex: 0 0 24px;
+      background: rgba(37,211,102,.16);
+      color: var(--green-3);
+      font-weight: 900;
+      margin-top: 1px;
+    }
+
+    .income-box {
+      border-radius: 30px;
+      padding: 28px;
+      background: rgba(6,19,13,.58);
+      border: 1px solid rgba(240,199,102,.22);
+    }
+
+    .income-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(255,255,255,.1);
+      color: rgba(255,255,255,.72);
+    }
+
+    .income-row:last-child {
+      border-bottom: 0;
+      color: var(--gold-2);
+      font-weight: 900;
+      font-size: 18px;
+    }
+
+    .steps {
+      display: grid;
+      gap: 14px;
+      counter-reset: step;
+    }
+
+    .step {
+      counter-increment: step;
+      display: grid;
+      grid-template-columns: 62px 1fr;
+      gap: 18px;
+      align-items: start;
+      padding: 22px;
+      border-radius: 26px;
+      background: rgba(255,255,255,.055);
+      border: 1px solid rgba(255,255,255,.11);
+    }
+
+    .step-num {
+      width: 62px;
+      height: 62px;
+      border-radius: 22px;
+      display: grid;
+      place-items: center;
+      background: rgba(240,199,102,.12);
+      border: 1px solid rgba(240,199,102,.2);
+      color: var(--gold);
+      font-family: "Unbounded", sans-serif;
+      font-weight: 900;
+    }
+
+    .step-num::before {
+      content: counter(step, decimal-leading-zero);
+    }
+
+    .mentor {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .mentor-photo {
+      min-height: 460px;
+      border-radius: 36px;
+      background:
+        linear-gradient(160deg, rgba(6,19,13,.08), rgba(6,19,13,.58)),
+        url("https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=900&q=80") center/cover;
+      border: 1px solid rgba(255,255,255,.13);
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .mentor-photo-note {
+      position: absolute;
+      left: 22px;
+      right: 22px;
+      bottom: 22px;
+      border-radius: 24px;
+      padding: 18px;
+      background: rgba(6,19,13,.74);
+      border: 1px solid rgba(255,255,255,.14);
+      backdrop-filter: blur(12px);
+    }
+
+    .mentor-content {
+      border-radius: 36px;
+      padding: 34px;
+      background: rgba(255,255,255,.055);
+      border: 1px solid rgba(255,255,255,.12);
+    }
+
+    .facts {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin: 26px 0;
+    }
+
+    .fact {
+      padding: 18px 14px;
+      border-radius: 22px;
+      background: rgba(6,19,13,.42);
+      border: 1px solid rgba(255,255,255,.1);
+    }
+
+    .fact strong {
+      display: block;
+      font-family: "Unbounded", sans-serif;
+      color: var(--gold);
+      margin-bottom: 6px;
+      font-size: 20px;
+    }
+
+    .price-panel {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .price-card {
+      border-radius: 34px;
+      padding: 32px;
+      background: rgba(255,255,255,.055);
+      border: 1px solid rgba(255,255,255,.12);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .price-card.featured {
+      background: linear-gradient(135deg, rgba(37,211,102,.18), rgba(240,199,102,.12));
+      border-color: rgba(240,199,102,.28);
+      box-shadow: var(--shadow);
+    }
+
+    .price-card .tag {
+      display: inline-flex;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: rgba(37,211,102,.14);
+      color: var(--green-3);
+      font-weight: 900;
+      font-size: 12px;
+      margin-bottom: 18px;
+    }
+
+    .price {
+      font-family: "Unbounded", sans-serif;
+      color: var(--gold);
+      font-size: clamp(30px, 4vw, 44px);
+      margin: 16px 0;
+    }
+
+    .faq {
+      display: grid;
+      gap: 12px;
+      max-width: 850px;
+      margin: 34px auto 0;
+    }
+
+    details {
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.055);
+      border-radius: 24px;
+      padding: 18px 20px;
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: 900;
+      list-style: none;
+    }
+
+    summary::-webkit-details-marker {
+      display: none;
+    }
+
+    details p {
+      color: var(--muted);
+      line-height: 1.65;
+      margin-top: 12px;
+    }
+
+    .final {
+      text-align: center;
+      border-radius: 44px;
+      padding: 58px 28px;
+      background:
+        radial-gradient(circle at 50% 0%, rgba(240,199,102,.18), transparent 34%),
+        linear-gradient(135deg, rgba(37,211,102,.17), rgba(255,255,255,.04));
+      border: 1px solid rgba(255,255,255,.13);
+      box-shadow: var(--shadow);
+    }
+
+    .final .lead {
+      margin: 0 auto;
+    }
+
+    .footer {
+      padding: 34px 0 98px;
+      color: rgba(255,255,255,.38);
+      text-align: center;
+      font-size: 13px;
+    }
+
+    @media (max-width: 920px) {
+      .nav-links {
+        display: none;
+      }
+
+      .hero-grid,
+      .split,
+      .solution-band,
+      .mentor,
+      .price-panel {
+        grid-template-columns: 1fr;
+      }
+
+      .section-head {
+        position: static;
+      }
+
+      .hero-visual {
+        min-height: auto;
+      }
+
+      .phone-card {
+        transform: none;
+      }
+
+      .floating-card {
+        display: none;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .container {
+        width: min(100% - 28px, var(--max));
+      }
+
+      .section {
+        padding: 70px 0;
+      }
+
+      .hero {
+        padding-top: 112px;
+      }
+
+      .topbar {
+        top: 10px;
+      }
+
+      .brand span:last-child {
+        max-width: 180px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .hero-actions,
+      .btn {
+        width: 100%;
+      }
+
+      .btn {
+        white-space: normal;
+        text-align: center;
+      }
+
+      .trust-row,
+      .cards-grid,
+      .facts {
+        grid-template-columns: 1fr;
+      }
+
+      .phone-screen {
+        min-height: 430px;
+      }
+
+      .solution-band,
+      .mentor-content,
+      .price-card,
+      .final {
+        padding: 26px;
+        border-radius: 28px;
+      }
+
+      .sticky-wa {
+        right: 14px;
+        left: 14px;
+        justify-content: center;
+      }
+
+      .footer {
+        padding-bottom: 112px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-mark">M</div>
+        <span>Moskit Business</span>
+      </div>
+      <nav class="nav-links" aria-label="Бөлімдер">
+        <a href="#about">Модель</a>
+        <a href="#program">Бағдарлама</a>
+        <a href="#mentor">Ментор</a>
+        <a href="#faq">Сұрақтар</a>
+      </nav>
+      <a class="btn btn-primary" style="min-height:42px;padding:10px 15px;border-radius:999px;font-size:13px;" href="https://wa.me/77086041152?text=%D0%BC%D0%BE%D1%81%D0%BA%D0%B8%D1%82" target="_blank" rel="noopener">
+        WhatsApp
+      </a>
+    </header>
+
+    <a class="sticky-wa" href="https://wa.me/77086041152?text=%D0%BC%D0%BE%D1%81%D0%BA%D0%B8%D1%82" target="_blank" rel="noopener" aria-label="WhatsApp арқылы жазу">
+      <svg class="wa-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      «москит» деп жаз
+    </a>
+
+    <main>
+      <section class="hero">
+        <div class="container hero-grid">
+          <div class="hero-copy">
+            <div class="eyebrow">Тек 10 орын</div>
+            <h1>Москитные сетки бизнесін <span class="accent">7 күнде</span> нөлден баста</h1>
+            <p class="lead">Клиент табу, дұрыс сату, замер жасау, установка процесі және алғашқы тапсырыстарға шығу жолын практикалық форматта үйренесің.</p>
+
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="https://wa.me/77086041152?text=%D0%BC%D0%BE%D1%81%D0%BA%D0%B8%D1%82" target="_blank" rel="noopener">
+                <svg class="wa-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/></svg>
+                WhatsApp-қа «москит» деп жаз
+              </a>
+              <a class="btn btn-secondary" href="#program">Бағдарламаны көру</a>
+            </div>
+
+            <div class="trust-row">
+              <div class="trust-item"><strong>7 күн</strong><span>қысқа, нақты және практикалық старт</span></div>
+              <div class="trust-item"><strong>0₸ офис</strong><span>офиссіз, бастапқы жеңіл модель</span></div>
+              <div class="trust-item"><strong>250 000₸</strong><span>мақсатты табыс потенциалы, нәтиже әрекетке байланысты</span></div>
+            </div>
+          </div>
+
+          <div class="hero-visual" aria-hidden="true">
+            <div class="floating-card one"><strong>Заявка → замер</strong><span>Клиентпен сөйлесу және нақты тапсырысқа шығу жүйесі</span></div>
+            <div class="phone-card">
+              <div class="phone-screen">
+                <div class="screen-badge"><span>Алматы</span><span>Маусымдық сұраныс</span></div>
+                <div class="screen-info">
+                  <div class="price">250.000₸</div>
+                  <p class="small-text">Мақсат: алғашқы тапсырыстарды алып, процесті түсіну. Нәтиже сенің әрекетіңе, қалаңа және жарнамаға байланысты.</p>
+                </div>
+              </div>
+            </div>
+            <div class="floating-card two"><strong>Дайын скрипт</strong><span>Не айту, қалай баға беру, қалай жабу — бәрі құрылыммен</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="about">
+        <div class="container split">
+          <div class="section-head">
+            <div class="eyebrow">Мәселе</div>
+            <h2>Бастағың келеді, бірақ <span class="accent">қайдан бастау</span> керек екенін білмейсің бе?</h2>
+            <p class="lead">Көп адам бизнеске үлкен ақша, офис, команда керек деп ойлайды. Бұл жерде бастысы — дұрыс жүйе, клиент ағыны және нақты орындау тәртібі.</p>
+          </div>
+
+          <div class="cards-grid">
+            <div class="card"><div class="icon">😟</div><h3>Қорқыныш бар</h3><p>«Қолымнан келе ме?» деген ой көп тоқтатады. Біз процесті ұсақ қадамдарға бөлеміз.</p></div>
+            <div class="card"><div class="icon">💸</div><h3>Табыс тұрақсыз</h3><p>Маусымдық сұранысы бар қарапайым қызмет арқылы қосымша табыс моделін түсінесің.</p></div>
+            <div class="card"><div class="icon">📣</div><h3>Клиент қайдан келеді?</h3><p>Жарнама, хабарландыру, органика және WhatsApp арқылы заявка жинау логикасын үйренесің.</p></div>
+            <div class="card"><div class="icon">🛠️</div><h3>Техникадан қорқасың</h3><p>Замер, материал, установка, баға есептеу — бәрі қарапайым тілмен түсіндіріледі.</p></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-sm">
+        <div class="container solution-band">
+          <div>
+            <div class="eyebrow">Шешім</div>
+            <h2>Саған <span class="accent">дайын жұмыс жүйесі</span> беріледі</h2>
+            <p class="lead">Бұл жай мотивация емес. Бұл — клиенттен бастап, замерге, установкаға және ақша қабылдауға дейінгі нақты қадамдық модель.</p>
+            <div class="check-list">
+              <div class="check">Қандай клиентке шығу керек екенін түсінесің.</div>
+              <div class="check">WhatsApp арқылы сөйлесу және сату скриптін қолданасың.</div>
+              <div class="check">Бағаны есептеу, маржа және шығынды бақылау логикасын үйренесің.</div>
+              <div class="check">Алғашқы тапсырыстарды алу үшін қарапайым әрекет жоспарын аласың.</div>
+            </div>
+          </div>
+
+          <div class="income-box">
+            <div class="income-row"><span>Орташа тапсырыс</span><strong>мысал бойынша</strong></div>
+            <div class="income-row"><span>Материал/жұмыс шығыны</span><strong>есеппен</strong></div>
+            <div class="income-row"><span>Маржа</span><strong>әр қалада әртүрлі</strong></div>
+            <div class="income-row"><span>Мақсат</span><strong>250.000₸ дейін</strong></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="program">
+        <div class="container split">
+          <div class="section-head">
+            <div class="eyebrow">Оқу бағдарламасы</div>
+            <h2>7 күндік <span class="accent">практикалық</span> жоспар</h2>
+            <p class="lead">Әр күн — нақты бір нәтиже. Теория аз, әрекет көп: түсіну, дайындау, шығу, сөйлесу, сату.</p>
+          </div>
+
+          <div class="steps">
+            <div class="step"><div class="step-num"></div><div><h3>Ниша және ұсыныс</h3><p class="small-text">Москитные сетки қызметін қалай түсіндіру, кімге ұсыну және қандай оффер жасау.</p></div></div>
+            <div class="step"><div class="step-num"></div><div><h3>Клиент табу</h3><p class="small-text">Жарнама, OLX/Instagram/2GIS/чаттар, аула және үй сегменті бойынша заявка жинау.</p></div></div>
+            <div class="step"><div class="step-num"></div><div><h3>WhatsApp сату скрипті</h3><p class="small-text">Клиентке қалай жауап беру, қарсылықтарды жабу, замерге жазу және бағаны қорғау.</p></div></div>
+            <div class="step"><div class="step-num"></div><div><h3>Замер және есептеу</h3><p class="small-text">Өлшем алу, материалды есептеу, өзіндік құн, маржа және финалдық баға.</p></div></div>
+            <div class="step"><div class="step-num"></div><div><h3>Установка процесі</h3><p class="small-text">Жұмыс тәртібі, құралдар, клиентке сапалы нәтиже көрсету және қайта сатылым алу.</p></div></div>
+            <div class="step"><div class="step-num"></div><div><h3>Алғашқы тапсырыстар</h3><p class="small-text">7 күнге нақты әрекет жоспары: күн сайын не істеу керек, қанша адамға жазу керек, қалай бақылау керек.</p></div></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="mentor">
+        <div class="container mentor">
+          <div class="mentor-photo">
+            <div class="mentor-photo-note">
+              <h3>Практикалық тәжірибе</h3>
+              <p class="small-text">Фотоны өзіңнің нақты фотоңа ауыстыр: image URL немесе файл жолын CSS ішіндегі background орнына қой.</p>
+            </div>
+          </div>
+
+          <div class="mentor-content">
+            <div class="eyebrow">Ментор</div>
+            <h2>Сені теориямен емес, <span class="accent">нақты жүйемен</span> жүргіземін</h2>
+            <p class="lead">Менің мақсатым — саған күрделі бизнес емес, түсінікті және қайталанатын процесс беру: клиент → замер → установка → төлем → келесі клиент.</p>
+
+            <div class="facts">
+              <div class="fact"><strong>1:1</strong><span class="small-text">бағыт беру</span></div>
+              <div class="fact"><strong>7 күн</strong><span class="small-text">жылдам старт</span></div>
+              <div class="fact"><strong>10 орын</strong><span class="small-text">шектеулі топ</span></div>
+            </div>
+
+            <div class="check-list">
+              <div class="check">Сен нақты не істеу керегін білесің.</div>
+              <div class="check">Дайын мәтіндер мен скрипттерді қолданасың.</div>
+              <div class="check">Қателіктерді азайтып, алғашқы қадамды тез жасайсың.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-sm">
+        <div class="container price-panel">
+          <div class="price-card">
+            <span class="tag">Кімге арналған?</span>
+            <h2 style="font-size:clamp(26px,3.2vw,38px);">Бұл курс саған керек, егер...</h2>
+            <div class="check-list">
+              <div class="check">Қосымша табыс бастағың келсе.</div>
+              <div class="check">Қолмен істелетін, түсінікті қызмет іздесең.</div>
+              <div class="check">Сату мен клиент табуды үйренгің келсе.</div>
+              <div class="check">Офиссіз және үлкен командасыз бастау керек болса.</div>
+            </div>
+          </div>
+
+          <div class="price-card featured">
+            <span class="tag">Қазір жазылу</span>
+            <h2 style="font-size:clamp(26px,3.2vw,38px);">Орын саны шектеулі</h2>
+            <div class="price">10 орын</div>
+            <p class="lead" style="font-size:16px;">WhatsApp-қа «москит» деп жаз. Саған толық ақпарат, формат және қатысу шарттары жіберіледі.</p>
+            <div style="margin-top:24px;">
+              <a class="btn btn-primary" href="https://wa.me/77086041152?text=%D0%BC%D0%BE%D1%81%D0%BA%D0%B8%D1%82" target="_blank" rel="noopener">WhatsApp-қа жазу</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="faq">
+        <div class="container">
+          <div style="text-align:center;">
+            <div class="eyebrow" style="margin-left:auto;margin-right:auto;">FAQ</div>
+            <h2>Жиі қойылатын <span class="accent">сұрақтар</span></h2>
+            <p class="lead" style="margin:0 auto;">Бастамас бұрын ең маңызды сұрақтарға қысқа жауап.</p>
+          </div>
+
+          <div class="faq">
+            <details>
+              <summary>Тәжірибе керек пе?</summary>
+              <p>Жоқ. Бағдарлама нөлден бастайтын адамға арналған. Бірақ нәтиже сенің күнделікті әрекетіңе байланысты.</p>
+            </details>
+            <details>
+              <summary>Көп ақша салу керек пе?</summary>
+              <p>Модельдің мақсаты — үлкен офиссіз және ауыр шығынсыз бастау. Нақты шығын қалаға, жарнамаға және жұмыс форматына байланысты есептеледі.</p>
+            </details>
+            <details>
+              <summary>250.000₸ кепілдік пе?</summary>
+              <p>Бұл кепілдік емес, мақсатты табыс потенциалы. Нәтиже қалаға, сұранысқа, жарнамаға, әрекет санына және орындау сапасына байланысты.</p>
+            </details>
+            <details>
+              <summary>Қалай жазыламын?</summary>
+              <p>Төмендегі WhatsApp батырмасын басып, автоматты түрде дайын мәтінмен «москит» деп жазыңыз.</p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-sm">
+        <div class="container final">
+          <div class="eyebrow" style="margin-left:auto;margin-right:auto;">Старт</div>
+          <h2>Бірінші қадамды бүгін жаса</h2>
+          <p class="lead">WhatsApp-қа «москит» деп жаз. Саған толық ақпарат жіберіледі және қай формат саған ыңғайлы екенін анықтаймыз.</p>
+          <div style="margin-top:28px;display:flex;justify-content:center;">
+            <a class="btn btn-primary" href="https://wa.me/77086041152?text=%D0%BC%D0%BE%D1%81%D0%BA%D0%B8%D1%82" target="_blank" rel="noopener">
+              <svg class="wa-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/></svg>
+              «москит» деп жазу
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        © 2026 Moskit Business • Алматы • WhatsApp: +7 708 604 11 52
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
