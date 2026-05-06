@@ -904,21 +904,27 @@
 
       /* ── HERO MOBILE: text → video stack ── */
       .hero {
-        padding: 88px 0 48px;
+        padding: 88px 0 40px;
         position: relative;
         overflow: hidden;
       }
 
-      /* subtle radial gold glow behind the headline */
+      /* dark background override: kill the eye-burning green radial on mobile */
+      body {
+        background:
+          radial-gradient(circle at 30% 0%, rgba(255,215,0,0.06) 0%, transparent 40%),
+          linear-gradient(180deg, #070f0a 0%, #050d08 100%);
+      }
+
+      /* subtle gold glow behind the headline only */
       .hero::before {
         content: "";
         position: absolute;
-        top: 60px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 340px;
-        height: 340px;
-        background: radial-gradient(circle, rgba(255,215,0,0.12) 0%, transparent 70%);
+        top: -20px;
+        left: -10%;
+        width: 120%;
+        height: 280px;
+        background: radial-gradient(ellipse at 50% 0%, rgba(255,215,0,0.07) 0%, transparent 65%);
         pointer-events: none;
         z-index: 0;
       }
@@ -926,7 +932,7 @@
       .hero-grid {
         display: flex;
         flex-direction: column;
-        gap: 28px;
+        gap: 24px;
         position: relative;
         z-index: 1;
       }
@@ -935,14 +941,58 @@
         padding: 0;
       }
 
-      /* show hero-visual (it holds the video) but clean up desktop chrome */
+      /* show hero-visual below the text */
       .hero-visual {
         display: block;
         min-height: auto;
         position: static;
       }
 
-      /* hide duplicate bg-video element */
+      /* clean up the phone-card for mobile: flat card, no tilt */
+      .phone-card {
+        transform: none;
+        max-width: 100%;
+        border-radius: 20px;
+        overflow: hidden;
+        background: rgba(255,255,255,0.04);
+        border: 1px solid rgba(255,255,255,0.1);
+        box-shadow: 0 12px 40px rgba(0,0,0,0.5);
+        backdrop-filter: none;
+      }
+
+      .phone-screen {
+        min-height: auto;
+        border-radius: 16px;
+        padding: 0;
+        background: #060e09;
+        position: relative;
+      }
+
+      /* gradient fade at the bottom of phone-screen into page bg */
+      .phone-screen::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 56px;
+        background: linear-gradient(to bottom, transparent 0%, #050d08 100%);
+        z-index: 5;
+        pointer-events: none;
+      }
+
+      /* video fills the phone-screen natively */
+      .phone-bg-video {
+        display: block;
+        width: 100%;
+        height: auto;
+        min-height: 260px;
+        border-radius: 16px;
+        position: static;
+        object-fit: cover;
+      }
+
+      /* hide duplicate mobile bg-video element */
       .hero-mobile-video {
         display: none;
       }
@@ -951,13 +1001,14 @@
         display: none;
       }
 
+      /* trust-row: one item per line for readability */
       .trust-row {
         grid-template-columns: 1fr;
         gap: 10px;
       }
 
       .mentor-photo {
-        min-height: 480px;
+        min-height: 460px;
       }
     }
 
