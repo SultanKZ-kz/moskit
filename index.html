@@ -886,7 +886,6 @@
         display: none;
       }
 
-      .hero-grid,
       .split,
       .solution-band,
       .mentor,
@@ -903,78 +902,48 @@
         position: static;
       }
 
+      /* ── HERO MOBILE: text → video stack ── */
       .hero {
-        padding: 90px 0 0;
-        min-height: auto;
-        position: static;
-        overflow: visible;
+        padding: 88px 0 48px;
+        position: relative;
+        overflow: hidden;
       }
 
-      /* remove the absolute overlay – not needed for stacked layout */
-      .hero::after {
-        display: none;
+      /* subtle radial gold glow behind the headline */
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: 60px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 340px;
+        height: 340px;
+        background: radial-gradient(circle, rgba(255,215,0,0.12) 0%, transparent 70%);
+        pointer-events: none;
+        z-index: 0;
       }
 
       .hero-grid {
         display: flex;
         flex-direction: column;
-        gap: 0;
-      }
-
-      .hero-copy {
-        padding: 0 0 0;
+        gap: 28px;
         position: relative;
-        z-index: 2;
-      }
-
-      /* gradient fade from text area into the video below */
-      .hero-copy::after {
-        content: "";
-        display: block;
-        height: 60px;
-        background: linear-gradient(
-          to bottom,
-          var(--bg) 0%,
-          transparent 100%
-        );
-        position: relative;
-        z-index: 2;
-        margin-top: 24px;
-      }
-
-      /* show the dedicated mobile video block */
-      .hero-mobile-video {
-        display: block;
-        position: relative;
-        width: 100%;
-        border-radius: 20px;
-        overflow: hidden;
-        margin-top: -60px; /* overlap with the gradient fade */
         z-index: 1;
       }
 
-      .hero-mobile-video video {
-        width: 100%;
-        aspect-ratio: 9/16;
-        object-fit: cover;
-        display: block;
-        border-radius: 20px;
+      .hero-copy {
+        padding: 0;
       }
 
-      /* gradient at the bottom of video fading into page background */
-      .hero-mobile-video::after {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        height: 80px;
-        background: linear-gradient(to bottom, transparent 0%, var(--bg) 100%);
-        pointer-events: none;
-      }
-
-      /* hide the desktop phone-card visual */
+      /* show hero-visual (it holds the video) but clean up desktop chrome */
       .hero-visual {
+        display: block;
+        min-height: auto;
+        position: static;
+      }
+
+      /* hide duplicate bg-video element */
+      .hero-mobile-video {
         display: none;
       }
 
@@ -982,12 +951,13 @@
         display: none;
       }
 
-      .mentor-photo {
-        min-height: 520px;
+      .trust-row {
+        grid-template-columns: 1fr;
+        gap: 10px;
       }
 
-      .trust-row {
-        grid-template-columns: repeat(3,1fr);
+      .mentor-photo {
+        min-height: 480px;
       }
     }
 
@@ -1001,16 +971,27 @@
       }
 
 
-      h1 { 
-        font-size: clamp(34px, 8.5vw, 48px);
-        margin-bottom: 18px; 
-        line-height: 1.05;
+      .hero {
+        padding: 80px 0 40px;
       }
+
+      h1 {
+        font-size: clamp(30px, 9vw, 44px);
+        margin-bottom: 16px;
+        line-height: 1.08;
+      }
+
       h1 .accent {
         display: block;
-        margin-top: 4px;
-        font-size: 1.05em;
+        margin-top: 6px;
+        color: var(--gold);
+        /* gradient text effect on accent line */
+        background: linear-gradient(90deg, #FFD700 0%, #FFE566 60%, #FFB300 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
       }
+
       h2 { margin-bottom: 14px; }
 
       .topbar {
@@ -1044,11 +1025,44 @@
         padding: 20px;
       }
 
-      .icon {
-        width: 40px;
-        height: 40px;
-        font-size: 20px;
-        margin-bottom: 14px;
+      /* video block below main text */
+      .phone-card {
+        transform: none;
+        max-width: 100%;
+        border-radius: 20px;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .phone-screen {
+        min-height: 320px;
+        border-radius: 16px;
+      }
+
+      /* gradient at top of phone-screen fading in */
+      .phone-screen::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 60px;
+        background: linear-gradient(to bottom, rgba(6,19,13,0.6) 0%, transparent 100%);
+        z-index: 5;
+        pointer-events: none;
+      }
+
+      /* gradient at bottom of phone-screen fading out */
+      .phone-screen::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 60px;
+        background: linear-gradient(to bottom, transparent 0%, rgba(6,19,13,0.85) 100%);
+        z-index: 5;
+        pointer-events: none;
       }
 
       .step {
