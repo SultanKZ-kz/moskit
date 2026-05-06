@@ -905,21 +905,46 @@
           linear-gradient(180deg, #080f0b 0%, #050c08 100%);
       }
 
-      /* ─ hero ─ */
+      /* ─ hero: mentor photo background with dark gradient overlay ─ */
       .hero {
-        padding: 88px 0 40px;
+        padding: 88px 0 48px;
         position: relative;
         overflow: hidden;
+        min-height: 100svh;
+        /* mentor photo on the right, dark gradient hides it behind text */
+        background-image:
+          linear-gradient(
+            105deg,
+            rgba(8,15,11,1.0)   0%,
+            rgba(8,15,11,0.97)  42%,
+            rgba(8,15,11,0.72)  62%,
+            rgba(8,15,11,0.18)  82%,
+            rgba(8,15,11,0.0)  100%
+          ),
+          url('mentor.jpg');
+        background-size: cover;
+        background-position: right 20% center;
+        background-repeat: no-repeat;
       }
 
-      /* wide gold corona above headline */
+      /* bottom fade so hero blends into the next section */
+      .hero::after {
+        content: "";
+        position: absolute;
+        bottom: 0; left: 0; right: 0; height: 80px;
+        background: linear-gradient(to bottom, transparent 0%, #080f0b 100%);
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      /* gold corona is replaced by photo; keep a subtle top glow */
       .hero::before {
         content: "";
         position: absolute;
-        top: -40px; left: -10%; width: 120%; height: 260px;
-        background: radial-gradient(ellipse at 50% 0%, rgba(255,215,0,0.09) 0%, transparent 60%);
+        top: 0; left: 0; width: 100%; height: 160px;
+        background: linear-gradient(to bottom, rgba(8,15,11,0.6) 0%, transparent 100%);
         pointer-events: none;
-        z-index: 0;
+        z-index: 1;
       }
 
       .hero-grid {
