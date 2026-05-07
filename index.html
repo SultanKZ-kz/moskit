@@ -1385,7 +1385,7 @@
             <div>
               <div class="video-stage" id="video-stage">
                 <div class="video-counter" id="video-counter">1 / 7</div>
-                <video id="main-video" controls playsinline preload="metadata">
+                <video id="main-video" controls playsinline preload="metadata" poster="mosquito_net.png">
                   <source src="WhatsApp%20Video%202026-05-06%20at%2017.06.33.mp4" type="video/mp4">
                 </video>
               </div>
@@ -1544,6 +1544,7 @@
       videoEl.pause();
       sourceEl.src = v.src;
       videoEl.load();
+      videoEl.poster = 'mosquito_net.png';
 
       document.getElementById('video-title').textContent = v.title;
       document.getElementById('video-desc').textContent = v.desc;
