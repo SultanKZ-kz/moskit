@@ -1231,7 +1231,7 @@
       <section class="hero">
         <!-- mobile background video (hidden on desktop via CSS) -->
         <div class="hero-mobile-video" aria-hidden="true">
-          <video playsinline muted autoplay loop>
+          <video playsinline muted autoplay loop poster="../video_poster.jpeg">
             <source src="hero_video.mp4" type="video/mp4">
           </video>
         </div>
@@ -1264,7 +1264,7 @@
             <div class="floating-card one"><strong>Заявка → замер</strong><span>Клиентпен сөйлесу және нақты тапсырысқа шығу жүйесі</span></div>
             <div class="phone-card">
               <div class="phone-screen" style="padding:0;">
-                <video controls playsinline class="phone-bg-video" poster="video_poster.jpg">
+                <video controls playsinline class="phone-bg-video" poster="../video_poster.jpeg">
                   <source src="hero_video.mp4" type="video/mp4">
                 </video>
               </div>
@@ -1385,7 +1385,7 @@
             <div>
               <div class="video-stage" id="video-stage">
                 <div class="video-counter" id="video-counter">1 / 7</div>
-                <video id="main-video" controls playsinline preload="metadata" poster="mosquito_net.png">
+                <video id="main-video" controls playsinline preload="metadata" poster="../video_poster.jpeg">
                   <source src="WhatsApp%20Video%202026-05-06%20at%2017.06.33.mp4" type="video/mp4">
                 </video>
               </div>
@@ -1544,7 +1544,7 @@
       videoEl.pause();
       sourceEl.src = v.src;
       videoEl.load();
-      videoEl.poster = 'mosquito_net.png';
+      videoEl.poster = '../video_poster.jpeg';
 
       document.getElementById('video-title').textContent = v.title;
       document.getElementById('video-desc').textContent = v.desc;
